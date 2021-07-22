@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color:powderblue;">
+
+    <form onsubmit="openLinks();return false;">
+        <input type="checkbox" name="Store" value="https://www.ishopnewworld.co.nz/Search?">
+        <label for="vehicle1"> New World</label><br>
+        <input type="checkbox" name="Store" value="https://shop.countdown.co.nz/shop/searchproducts?search=">
+        <label for="vehicle2"> Countdown</label><br>
+        <input type="checkbox" name="Store" value="https://www.paknsave.co.nz/">
+        <label for="vehicle3"> Pack'n Save</label><br>
+        <button type="submit">Search</button>
+    </form>
+
+</body>
+
+<script>
+    function openLinks() {
+        var selected = document.getElementsByName('Store');
+        var count = 0;
+
+        for (var checkbox of selected) {
+            if (checkbox.checked)
+                window.open(selected[count].value);
+                count = count + 1;
+        }
+    }
+</script>
+
+</html>

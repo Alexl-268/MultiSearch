@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Please enter a product you would like to search for
+    </title>
+</head>
+
+<body style="background-color:powderblue;">
+    <select>
+        <option value='1' selected>Relevance</option>
+        <option value='2'>Price Ascending</option>
+        <option value='3'>Price Descending</option>
+    </select>
+
+    <form onsubmit="openLinks();return false;">
+        <input id="product" type="text">
+        <button type="submit">Search</button>
+        <br>
+        <input type="checkbox" id = "New World" name="Store" value="https://www.ishopnewworld.co.nz/Search?q=">
+        <label for="New World"> New World</label><br>
+        <input type="checkbox" id = "Countdown" name="Store" value="https://shop.countdown.co.nz/shop/searchproducts?size=120&search=">
+        <label for="Countdown"> Countdown</label><br>
+        <input type="checkbox" id = "Pack" name="Store" value="https://www.paknsaveonline.co.nz/Search?q=">
+        <label for="Pack"> Pack'n Save</label><br>
+    </form>
+    <!--  -->
+</body>
+
+<script>
+
+    function openLinks() {
+        var newWorldSort =  ["",    "&s=sortprice&sd=0", "&s=sortprice&sd=1"];
+        var countdownSort = ["",    "sort=Relevance",   "sort=PriceAsc"];
+        var PacknsaveSort = ["",    ""]
+
+        let product = document.querySelector('#product').value;
+
+        if (!(product === "")) {        
+            let sort = document.querySelector('select').value;
+
+            var selected = document.getElementsByName('Store');
+            for (var checkbox of selected) {
+                if (checkbox.checked) {
+                    window.open(checkbox.value + product);
+                }
+            }
+        }
+
+        else {
+            alert("Please enter a product name");
+        }
+    }
+
+</script>
+
+</html>
